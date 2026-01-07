@@ -17,5 +17,9 @@ public class Main {
 
         int[] arr1 = {0,0,1,1,1,2,2,3,3,4};
         System.out.println("Length of the List or Set :"+ solution.removeDuplicates1(arr1));
+
+        int[] arr2 = {0,1,2,2,3,0,4,2};
+        int val = 2;
+        System.out.println("The length of Array: "+solution.removeElement(arr2,val));
     }
 }

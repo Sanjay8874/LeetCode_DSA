@@ -94,16 +94,15 @@ public class Solution {
     }
 
     /**
-     *
      * @param nums
      * @return
      */
     public int removeDuplicates1(int[] nums) {
         int l = nums.length;
-        int index=1;
-        for(int i=0;i<l-1;i++){
-            if(nums[i]!=nums[i+1]){
-                nums[index]=nums[i+1];
+        int index = 1;
+        for (int i = 0; i < l - 1; i++) {
+            if (nums[i] != nums[i + 1]) {
+                nums[index] = nums[i + 1];
                 index++;
             }
         }
@@ -112,8 +111,44 @@ public class Solution {
 
     }
 
+    /**
+     * @param nums Array of Element
+     * @param val  Element to be removed from Array
+     * @return return length of a Modified array
+     * The Solution is correct it is returning the correct and expected value,
+     * but it's not modifying the existing array as expected by the LeetCode problem
+     */
 
 
+    /*Remove Element*/
+    public int removeElement(int[] nums, int val) {
+        int count = 0;
+        int l = nums.length;
+        for (int i = 0; i <= nums.length - 1; i++) {
+            if (nums[i] == val) {
+                count++;
+            }
+        }
+        return l - count;
+    }
+
+    /**
+     * @param nums Array of Element
+     * @param val  Element to be removed from Array
+     * @return return length of a Modified array
+     */
+    /*Remove Element*/
+    public int removeElement1(int[] nums, int val) {
+        int count = 0;
+        for (int i = 0; i < nums.length; i++) {
+            if (nums[i] != val) {
+                nums[count] = nums[i];
+                count++;
+            }
+        }
+        return count;
+    }
 }
+
 
 
