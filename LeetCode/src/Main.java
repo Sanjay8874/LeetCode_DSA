@@ -21,5 +21,15 @@ public class Main {
         int[] arr2 = {0,1,2,2,3,0,4,2};
         int val = 2;
         System.out.println("The length of Array: "+solution.removeElement(arr2,val));
+
+        int[] arr3 = {1,3,5,6};
+        int target1 = 5;
+        System.out.println("Index of Target1: "+solution.searchInsert(arr3,target1));
+
+        int number = 4;
+        solution.helper(number);
+
+        int[] arr6 = {1,2,3};
+        System.out.println(Arrays.toString(solution.plusOne(arr6)));
     }
 }

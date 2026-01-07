@@ -148,6 +148,38 @@ public class Solution {
         }
         return count;
     }
+
+    /*Search Insert Position*/
+    /*Solve this problem once you learn about Searching in Algo */
+    public int searchInsert(int[] nums, int target) {
+        return 0;
+    }
+
+    /**
+     *
+     * @param digits Array of elememt
+     * @return return a new array with increment.
+     */
+    /*plusOne*/
+    public int[] plusOne(int[] digits) {
+        for (int i= digits.length-1;i>=0;i--){
+            if (digits[i]<9){
+                digits[i]++;
+                return digits;
+            }
+            digits[i]=0;
+        }
+        /*if all elements are 9, we have to increase the size of array */
+        int[] result = new int[digits.length+1];
+        result[0]=1;
+        return result;
+    }
+
+    public void helper(int number){
+        int div = number/10;
+        int mod = number%10;
+        System.out.println("div is: "+ div + " mod is: "+ mod);
+    }
 }
 
 
