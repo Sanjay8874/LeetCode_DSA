@@ -203,6 +203,24 @@ public class Solution {
         }
         return arr;
     }
+
+    /**
+     *
+     * @param nums1 first Array
+     * @param m Length of nums1
+     * @param nums2 second Array
+     * @param n Length of second Array
+     */
+    /*Merge Sorted Array*/
+    public void merge(int[] nums1, int m, int[] nums2, int n) {
+        int i=0;
+        while(m!=nums1.length){
+            nums1[m]=nums2[i];
+            m++;
+            i++;
+        }
+        Arrays.sort(nums1);
+    }
 }
 
 

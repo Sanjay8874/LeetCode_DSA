@@ -34,5 +34,11 @@ public class Main {
 
         int[] arr7 = {1,0,0,2,3};
         System.out.println(Arrays.toString(solution.shiftZero(arr7)));
+
+        int[] arr8 = {0};
+        int m=0;
+        int[] arr9 = {1};
+        int n=1;
+        solution.merge(arr8,m,arr9,n);
     }
 }
