@@ -31,5 +31,8 @@ public class Main {
 
         int[] arr6 = {1,2,3};
         System.out.println(Arrays.toString(solution.plusOne(arr6)));
+
+        int[] arr7 = {1,0,0,2,3};
+        System.out.println(Arrays.toString(solution.shiftZero(arr7)));
     }
 }

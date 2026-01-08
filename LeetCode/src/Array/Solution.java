@@ -180,6 +180,29 @@ public class Solution {
         int mod = number%10;
         System.out.println("div is: "+ div + " mod is: "+ mod);
     }
+
+    /**
+     *
+     * @param arr Array of elements
+     * @return return result array
+     *
+     */
+    public int[] shiftZero(int[] arr){
+
+        /*1-Shift all non-zero to starting of an array*/
+        int index=0;
+        for (int i=0;i<arr.length;i++){
+            if (arr[i]!=0){
+                arr[index]= arr[i];
+                index++;
+            }
+        }
+        /*2-keep all zero to End*/
+        for (int i=index;i<arr.length;i++){
+            arr[i]=0;
+        }
+        return arr;
+    }
 }
 
 
