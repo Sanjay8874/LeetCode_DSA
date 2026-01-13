@@ -53,7 +53,7 @@ public class Solution {
     }
 
     /**
-     * First Approach
+     * second Approach
      *
      * @param nums   Array of elements
      * @param target Targeted sum
@@ -156,70 +156,96 @@ public class Solution {
     }
 
     /**
-     *
      * @param digits Array of elememt
      * @return return a new array with increment.
      */
     /*plusOne*/
     public int[] plusOne(int[] digits) {
-        for (int i= digits.length-1;i>=0;i--){
-            if (digits[i]<9){
+        for (int i = digits.length - 1; i >= 0; i--) {
+            if (digits[i] < 9) {
                 digits[i]++;
                 return digits;
             }
-            digits[i]=0;
+            digits[i] = 0;
         }
         /*if all elements are 9, we have to increase the size of array */
-        int[] result = new int[digits.length+1];
-        result[0]=1;
+        int[] result = new int[digits.length + 1];
+        result[0] = 1;
         return result;
     }
 
-    public void helper(int number){
-        int div = number/10;
-        int mod = number%10;
-        System.out.println("div is: "+ div + " mod is: "+ mod);
+    public void helper(int number) {
+        int div = number / 10;
+        int mod = number % 10;
+        System.out.println("div is: " + div + " mod is: " + mod);
     }
 
     /**
-     *
      * @param arr Array of elements
      * @return return result array
-     *
      */
-    public int[] shiftZero(int[] arr){
+    public int[] shiftZero(int[] arr) {
 
         /*1-Shift all non-zero to starting of an array*/
-        int index=0;
-        for (int i=0;i<arr.length;i++){
-            if (arr[i]!=0){
-                arr[index]= arr[i];
+        int index = 0;
+        for (int i = 0; i < arr.length; i++) {
+            if (arr[i] != 0) {
+                arr[index] = arr[i];
                 index++;
             }
         }
         /*2-keep all zero to End*/
-        for (int i=index;i<arr.length;i++){
-            arr[i]=0;
+        for (int i = index; i < arr.length; i++) {
+            arr[i] = 0;
         }
         return arr;
     }
 
     /**
-     *
      * @param nums1 first Array
-     * @param m Length of nums1
+     * @param m     Length of nums1
      * @param nums2 second Array
-     * @param n Length of second Array
+     * @param n     Length of second Array
      */
     /*Merge Sorted Array*/
     public void merge(int[] nums1, int m, int[] nums2, int n) {
-        int i=0;
-        while(m!=nums1.length){
-            nums1[m]=nums2[i];
+        int i = 0;
+        while (m != nums1.length) {
+            nums1[m] = nums2[i];
             m++;
             i++;
         }
         Arrays.sort(nums1);
+    }
+
+    /**
+     * This is the best solution
+     * @param nums Array of elements
+     * @return return the single elements.
+     * Time complexity O(n), and space complexity O(1)
+     */
+    /*136. Single Number*/
+    public int singleNumber(int[] nums) {
+        int result = 0;
+        for (int num : nums) {
+            result ^= num;
+        }
+        return result;
+    }
+
+    /*Another approach using Hash Map*/
+    public int singleNumber1(int[] nums) {
+        Map<Integer, Integer> map = new HashMap<>();
+        int singleNumber= 0;
+        for (int num:nums){
+            map.put(num, map.getOrDefault(num,0)+1);
+        }
+         for (Map.Entry<Integer, Integer> entry: map.entrySet()){
+             if (entry.getValue()==1){
+                singleNumber=entry.getKey();
+             }
+         }
+         return singleNumber;
     }
 }
 
