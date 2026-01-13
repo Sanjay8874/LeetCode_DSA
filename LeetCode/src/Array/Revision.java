@@ -9,7 +9,7 @@ public class Revision {
      * @return return array
      * Pattern-pointer
      */
-    public int[] twoSum(int[] nums, int target) {
+   /* public int[] twoSum(int[] nums, int target) {
 
-    }
+    }*/
 }

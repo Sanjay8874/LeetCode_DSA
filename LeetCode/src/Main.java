@@ -45,5 +45,8 @@ public class Main {
         int[] arr10 = {2,2,1};
         System.out.println("SingleNumber: "+solution.singleNumber1(arr10));
 
+        int[] arr11 = {1, 2, 3, 2};
+        System.out.println("isDuplicate: "+solution.containsDuplicate(arr11));
+
     }
 }

@@ -247,7 +247,41 @@ public class Solution {
          }
          return singleNumber;
     }
+
+    /**
+     *
+     * @param nums Array of elements
+     * @return return boolean when any duplicate finds
+     */
+    public boolean containsDuplicate(int[] nums) {
+        Set<Integer> set = new HashSet<>();
+        for (int num : nums) {
+            if (!set.add(num)) {
+                return true;
+            }
+        }
+        return false;
+    }
+
+
+    /* Second Approach->we can use the Hashmap for find duplicate in arrays*/
+    public boolean containsDuplicate1(int[] nums) {
+        Map<Integer, Integer> map = new HashMap<>();
+        boolean isDuplicate = false;
+        for (int i:nums){
+            map.put(i,map.getOrDefault(i,0)+1);
+        }
+        for (Map.Entry<Integer,Integer> entry: map.entrySet()){
+            if (entry.getValue() > 1) {
+                isDuplicate = true;
+                break;
+            }
+        }
+        return isDuplicate;
+    }
+
 }
+
 
 
 
