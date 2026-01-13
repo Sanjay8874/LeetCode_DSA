@@ -48,5 +48,9 @@ public class Main {
         int[] arr11 = {1, 2, 3, 2};
         System.out.println("isDuplicate: "+solution.containsDuplicate(arr11));
 
+        int[] arr12 = {1,2,3,1,2,3};
+        int k=3;
+        System.out.println("isDuplicate11: "+solution.containsNearbyDuplicate1(arr12,k));
+
     }
 }
