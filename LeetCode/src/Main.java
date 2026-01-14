@@ -52,5 +52,10 @@ public class Main {
         int k=3;
         System.out.println("isDuplicate11: "+solution.containsNearbyDuplicate1(arr12,k));
 
+        int[] arr13 = {1,3,2,1};
+        System.out.println("Merged arrays: "+ Arrays.toString(solution.getConcatenation(arr13)));
+
+        int[] arr14 = {1,1,1,0,1,1};
+        System.out.println("Count of 1: "+ solution.findMaxConsecutiveOnes(arr14));
     }
 }

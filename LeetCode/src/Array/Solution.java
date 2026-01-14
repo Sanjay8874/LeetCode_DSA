@@ -8,7 +8,7 @@ public class Solution {
      * @param strs Array of String
      * @return Common prefix substring
      */
-    /*Longest Common Prefix*/
+    /*1. Longest Common Prefix*/
     public static String longestCommonPrefix(String[] strs) {
         if (strs == null || strs.length == 0) {
             return "";
@@ -38,7 +38,7 @@ public class Solution {
      * @return return the Index of value which sum is equal to the Target
      * TIME COMPLEXITY- O(n^2)
      */
-    /*1. Two Sum*/
+    /*2. Two Sum*/
     public int[] twoSum(int[] nums, int target) {
         int[] twoSum = new int[2];
         for (int i = 0; i <= nums.length; i++) {
@@ -83,6 +83,7 @@ public class Solution {
      * @param nums Array of Elements
      * @return the size of Set or List.
      */
+    /*3. removeDuplicates*/
     public int removeDuplicates(int[] nums) {
         List<Integer> number = new ArrayList<>();
         for (int i : nums) {
@@ -120,7 +121,7 @@ public class Solution {
      */
 
 
-    /*Remove Element*/
+    /*4. Remove Element*/
     public int removeElement(int[] nums, int val) {
         int count = 0;
         int l = nums.length;
@@ -159,7 +160,7 @@ public class Solution {
      * @param digits Array of elememt
      * @return return a new array with increment.
      */
-    /*plusOne*/
+    /*5.plusOne*/
     public int[] plusOne(int[] digits) {
         for (int i = digits.length - 1; i >= 0; i--) {
             if (digits[i] < 9) {
@@ -184,6 +185,7 @@ public class Solution {
      * @param arr Array of elements
      * @return return result array
      */
+    /*6.shiftZero*/
     public int[] shiftZero(int[] arr) {
 
         /*1-Shift all non-zero to starting of an array*/
@@ -207,7 +209,7 @@ public class Solution {
      * @param nums2 second Array
      * @param n     Length of second Array
      */
-    /*Merge Sorted Array*/
+    /*7. Merge Sorted Array*/
     public void merge(int[] nums1, int m, int[] nums2, int n) {
         int i = 0;
         while (m != nums1.length) {
@@ -224,7 +226,7 @@ public class Solution {
      * @return return the single elements.
      * Time complexity O(n), and space complexity O(1)
      */
-    /*136. Single Number*/
+    /*8. Single Number*/
     public int singleNumber(int[] nums) {
         int result = 0;
         for (int num : nums) {
@@ -233,7 +235,7 @@ public class Solution {
         return result;
     }
 
-    /*Another approach using Hash Map*/
+    /*9.Another approach using Hash Map*/
     public int singleNumber1(int[] nums) {
         Map<Integer, Integer> map = new HashMap<>();
         int singleNumber= 0;
@@ -253,6 +255,7 @@ public class Solution {
      * @param nums Array of elements
      * @return return boolean when any duplicate finds
      */
+    /*9.containsDuplicate*/
     public boolean containsDuplicate(int[] nums) {
         Set<Integer> set = new HashSet<>();
         for (int num : nums) {
@@ -264,7 +267,7 @@ public class Solution {
     }
 
 
-    /* Second Approach->we can use the Hashmap for find duplicate in arrays*/
+    /*10.Second Approach->we can use the Hashmap for find duplicate in arrays*/
     public boolean containsDuplicate1(int[] nums) {
         Map<Integer, Integer> map = new HashMap<>();
         boolean isDuplicate = false;
@@ -280,7 +283,7 @@ public class Solution {
         return isDuplicate;
     }
 
-    /*First Approach, O(n^2)*/
+    /*11.First Approach, O(n^2)*/
     public boolean containsNearbyDuplicate(int[] nums, int k) {
             for (int i=0;i<nums.length;i++){
                 for (int j=i+1;j<nums.length;j++){
@@ -291,22 +294,71 @@ public class Solution {
             }
             return false;
     }
-
     /*Second and best Approach, O(n)*/
-        public boolean containsNearbyDuplicate1(int[] nums, int k) {
-            Map<Integer, Integer> seen = new HashMap<>();
+    public boolean containsNearbyDuplicate1(int[] nums, int k) {
+        Map<Integer, Integer> seen = new HashMap<>();
 
-            for (int i = 0; i < nums.length; i++) {
-                int val = nums[i];
-                if (seen.containsKey(val) && i - seen.get(val) <= k) {
-                    return true;
-                }
-                seen.put(val, i);
+        for (int i = 0; i < nums.length; i++) {
+            int val = nums[i];
+            if (seen.containsKey(val) && i - seen.get(val) <= k) {
+                return true;
             }
-
-            return false;
+            seen.put(val, i);
         }
 
+        return false;
+    }
+    /**
+     *
+     * @param nums Arrays of Elements
+     * @return return new Concatenation Array.
+     */
+    /*Challenge*/
+    /*12. Concatenation of Array*/
+    public int[] getConcatenation(int[] nums) {
+        int l = nums.length;
+        int[] ans = new int[l+l];
+        System.arraycopy(nums, 0, ans, 0, l);
+        System.out.println("ans: "+Arrays.toString(ans));
+
+        int i=0;
+        while (i<=ans.length && l<=ans.length-1){
+            ans[l]=ans[i];
+            i++;
+            l++;
+        }
+        System.out.println("ans1:"+ Arrays.toString(ans));
+        return ans;
+    }
+
+    /*13. shuffle*/
+    public int[] shuffle(int[] nums, int n) {
+        int[] ans = new int[2 * n];
+        int index = 0;
+        for (int i = 0; i < n; i++) {
+            ans[index++] = nums[i];
+            ans[index++] = nums[i + n];
+        }
+
+        return ans;
+    }
+
+    /*14. Max Consecutive Ones*/
+    public int findMaxConsecutiveOnes(int[] nums) {
+        int currentCount = 0;
+        int maxCount = 0;
+        for (int num : nums) {
+            if (num == 1) {
+                currentCount++;
+                maxCount = Math.max(maxCount, currentCount);
+            } else {
+                currentCount = 0;
+            }
+        }
+        return maxCount;
+    }
+
+   
 }
 
 
