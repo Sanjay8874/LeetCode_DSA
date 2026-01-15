@@ -57,5 +57,8 @@ public class Main {
 
         int[] arr14 = {1,1,1,0,1,1};
         System.out.println("Count of 1: "+ solution.findMaxConsecutiveOnes(arr14));
+
+        int[] arr15 = {1,1};
+        System.out.println("SetMisMatch: "+Arrays.toString(solution.findErrorNums(arr15)));
     }
 }

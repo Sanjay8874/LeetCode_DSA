@@ -358,7 +358,31 @@ public class Solution {
         return maxCount;
     }
 
-   
+   /*15.Set Mismatch*/
+
+    /**
+     *
+     * @param nums element of Array
+     * @return return new Arrays
+     */
+   public int[] findErrorNums(int[] nums) {
+       int l = nums.length;
+       Set<Integer> sets = new HashSet<>();
+       int[] ans = new int[2];
+       for (int num : nums) {
+           if (!sets.add(num)) {
+               ans[0] = num;
+           }
+       }
+       int sum = 0;
+       for (int i : sets) {
+           sum += i;
+       }
+       int sumOfN = l * (l + 1) / 2;
+       ans[1] = sumOfN - sum;
+       System.out.println("SumN: "+sumOfN);
+       return ans;
+   }
 }
 
 
